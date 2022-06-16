@@ -5,5 +5,6 @@ from service.views import index
 
 urlpatterns = [
     path('service/', index),
+    path ('', index, name = 'index'),
     
 ]
