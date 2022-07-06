@@ -10,3 +10,18 @@ class KDM (models.Model):
     name = models.CharField (verbose_name='Марка, модель', max_length=50)
     factory = models.CharField (verbose_name='Завод-изготовитель', max_length=100)
     image = models.ImageField (verbose_name= 'Фото')
+    
+class PUMVS (models.Model):
+    name = models.CharField (verbose_name='Марка, модель', max_length=50)
+    factory = models.CharField (verbose_name='Завод-изготовитель', max_length=100)
+    image = models.ImageField (verbose_name= 'Фото')
+    
+class VPM (models.Model):
+    name = models.CharField (verbose_name='Марка, модель', max_length=50)
+    factory = models.CharField (verbose_name='Завод-изготовитель', max_length=100)
+    image = models.ImageField (verbose_name= 'Фото')
+    
+class PUPRICEP (models.Model):
+    name = models.CharField (verbose_name='Марка, модель', max_length=50)
+    factory = models.CharField (verbose_name='Завод-изготовитель', max_length=100)
+    image = models.ImageField (verbose_name= 'Фото')

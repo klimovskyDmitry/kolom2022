@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import KDM
+from .models import KDM, PUMVS, VPM, PUPRICEP
 
 
 def index (req):
@@ -22,4 +22,8 @@ def roadway (req):
 def kdm (req):
     all_kdms = {'kdms' : KDM.objects.all()}
     return render (req, 'kdm.html', all_kdms)
+
+def pumvs (req):
+    all_pumvss = {'pumvss' : PUMVS.objects.all()}
+    return render (req, 'pumvs.html', all_pumvss)
    
