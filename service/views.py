@@ -1,6 +1,10 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.shortcuts import render
+from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import KDM
 
 
 def index (req):
@@ -11,3 +15,11 @@ def navbar (req):
 
 def photo (req):
     return render (req, 'photo.html')
+
+def roadway (req):
+    return render (req, 'for_roadway.html')
+
+def kdm (req):
+    all_kdms = {'kdms' : KDM.objects.all()}
+    return render (req, 'kdm.html', all_kdms)
+   

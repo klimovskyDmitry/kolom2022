@@ -1,0 +1,55 @@
+{% comment %} {% extends 'index.html' %} {% endcomment %}
+
+<style>
+    
+    body {
+    
+    background: url(/static/image/фон.jpg) no-repeat top center ;
+    background-size: 100%;
+            
+       }
+    h1 {
+      color: #B22222;
+      font-family: 'Times New Roman';
+       }
+    ul {
+     color: darkgreen;
+      }  
+    
+</style>
+
+
+
+
+{% block content %}
+    {% comment %} <div class = 'container'> {% endcomment %}
+        <h1 align = 'center'><b> Техника для уборки проезжей части </b></h1>
+        
+  <h3>  
+  <ul><b>
+    <li> <a href="{% url 'kdm' %}"> Комбинированные дорожные машины (КДМ) </a></li>
+    <li> ПУМ-ВС </li>
+    <li> Вакуумные подметально-уборочные (ВПМ) </li>
+    <li> Подметально-уборочные прицепы </li>
+    
+  </b></ul>
+</h3>
+        {% comment %} <div class = 'card card-block'> {% endcomment %}
+          
+        
+           {% comment %} <table class = "table table-striped">
+                <thead>
+                   <tr>
+                       <th scope = 'col'> pk </th>
+                       <th scope = 'col'> Название </th>
+                       <th scope = 'col'> Описание </th>
+                       <th scope = 'col'> Дата публикации </th>
+                       <th scope = 'col'> Изменить </th>
+                       <th scope = 'col'> Удалить </th>
+                   </tr>
+                </thead> {% endcomment %}
+                
+                 
+        {% comment %} </div>
+    </div> {% endcomment %}
+{% endblock %}
