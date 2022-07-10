@@ -1,10 +1,24 @@
-/* body {
-    text-align: center;
-    background-image: url('20190926_090211.jpg');
-    opacity: 0.3;
-    background-repeat: no-repeat;
-} */
 
 
+body {
 
+    background: url(/static/image/20190926_090211.jpg) no-repeat top center ;
+    background-size: 100%;        
+       }
+
+    
+h1 {
+      color: #80162f;
+      font-family: 'Times New Roman';
+       }
+h5 {
+      color: #808000;
+      font-family: 'Times New Roman';
+       }
+/* ul {
+      color: orange;
+    } */
+ /* li {
+      font-size: 20px;
+    }  */
 

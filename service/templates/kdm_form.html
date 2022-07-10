@@ -1,0 +1,14 @@
+{%  extends 'kdm.html' %}
+
+
+{% block content %}
+<form action = "" method = "POST">
+    {% csrf_token %}
+    
+    <div class = 'form_group'>
+        {{ form.as_p }}
+    </div>
+        
+    <button type="submit" class="btn btn-primary">Добавить марку,модель КДМ</button>
+</form>
+{% endblock%}

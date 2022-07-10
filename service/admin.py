@@ -8,7 +8,7 @@ class AutoAdmin (admin.ModelAdmin):
     
 @ admin.register (KDM)
 class KDMAdmin (admin.ModelAdmin):
-    list_display = ('name', 'factory', 'image')
+    list_display = ('name', 'chassis', 'factory', 'image', 'tech', 'comment')
     
 @ admin.register (PUMVS)
 class PUMVSAdmin (admin.ModelAdmin):

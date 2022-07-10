@@ -1,37 +1,54 @@
 {% extends 'index.html' %}
+{% comment %} <style>
+table, thead, tbody {
+    
+    border: 1px solid black;
+   }
+
+</style> {% endcomment %}
+
+{% comment %} <link rel = "stylesheet" href = '/static/css/kdm.css'>  {% endcomment %}
+
 
 {% block content %}
     <div class = 'container'>
         <h1 align = 'center'  ><b> Комбинированные дорожные машины </b></h1>
-        <div class = 'card card-block'>
-          <a class="btn btn-primary btn-sn btn-block" href="#">Добавить новую марку/модель КДМ</a>
+   <div class = 'card card-block'> 
+          <a class="btn btn-primary btn-lg btn-block" href="{% url 'create_kdm' %}">Добавить новую марку,модель КДМ</a>
         
-           <table class="table table-bordered">
+           <table class="table table-bordered" style="border:1px solid; margin:0px;">
                 <thead>
-                   <tr class="warning">
+                   <tr align="center" valign="middle">
                        
-                       <th width="30%"> Марка, модель </th>
-                       <th width="30%"> Завод-изготовитель </th>
-                       <th width="20%"> Фото </th>
-                       <th width="10%"> Изменить </th>
-                       <th width="10%"> Удалить </th>
+                       <th style="width:15%;"> Марка, модель </th>
+                       <th style="width:15%;"> Шасси </th>
+                       <th style="width:15%;"> Завод-изготовитель </th>
+                       <th style="width:15%;"> Фото </th>
+                       <th style="width:10%;"> Галерея фото </th>
+                       <th style="width:10%;"> Добавить своё фото </th>
+                       <th style="width:10%;"> Технические характеристики </th>
+                       <th style="width:10%;"> Комментарии </th>
+
                    </tr>
                 </thead>
                 <tbody>
                     {% if kdms %}
                 
                         {% for kdm in kdms%}
-                            <tr>
-                                <td width="30%"> {{kdm.name}}</td>
-                                <td width="30%"> {{kdm.factory}}</td> 
-                                <td width="20%"> 
-                                  {% if kdm.image %}
-                                                                        
-                                        <img src = "{{kdm.image.url}}" style="width:20%;" >  
-                                
-                                    {% endif %}
-                                    
-                                </td> 
+                            <tr valign="middle">
+                                <td> {{kdm.name}}</td>
+                                <td> {{kdm.chassis}}</td>
+                                <td> {{kdm.factory}}</td> 
+                                <td> 
+                                  {% if kdm.image %}                          
+                                        <img src = "{{kdm.image.url}}" style="max-width:200px;">  
+                                  {% endif %} 
+                                <td align = "center"><a class="btn btn-info btn-sm btn-block" href="#">Просмотр галереи</a> </td>
+                                <td align = "center"><a class="btn btn-warning btn-sm btn-block" href="#">Добавить фото</a> </td>
+                                <td align = "center"><a class="btn btn-success btn-sm btn-block" href="#">Узнать характеристики</a> </td>
+                                <td align = "center"><a class="btn btn-secondary btn-sm btn-block" href="#">Просмотр и добавление</a> </td>
+
+
                                 {% comment %} <td> {{book.published|date:"DATETIME_FORMAT"}}</td>
                                 <td> <a class="btn btn-sn btn-info" href="{% url 'update_book' book.pk %}">Обновить</a></td>
                                 <td> <a class="btn btn-sn btn-danger" href="{% url 'delete_book' book.pk %}">Удалить</a></td> {% endcomment %}
@@ -43,6 +60,6 @@
                     {% endif %}
                 </tbody>
             </table>
-        </div>
-    </div>
+        </div> 
+     </div> 
 {% endblock %}

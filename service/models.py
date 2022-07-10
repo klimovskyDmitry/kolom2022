@@ -8,8 +8,11 @@ class Auto (models.Model):
 
 class KDM (models.Model):
     name = models.CharField (verbose_name='Марка, модель', max_length=50)
+    chassis = models.CharField (verbose_name='Шасси', max_length=50, blank=True)
     factory = models.CharField (verbose_name='Завод-изготовитель', max_length=100)
-    image = models.ImageField (verbose_name= 'Фото')
+    image = models.ImageField (verbose_name= 'Фото', blank=True)
+    tech = models.TextField (verbose_name= 'Технические характеристики', blank=True)
+    comment = models.TextField (verbose_name= 'Комментарии', blank=True)
     
 class PUMVS (models.Model):
     name = models.CharField (verbose_name='Марка, модель', max_length=50)
