@@ -16,10 +16,10 @@
       
       <div class = 'navbar-nav navbar-right'>
         {% if user.is_authenticated %}
-        <a class="nav-item nav-link" href="#">Выйти</a>
+        <a class="nav-item nav-link" href="{% url 'logout' %}">Выйти</a>
         {% else%}
-        <a class="nav-item nav-link" href="#">Зарегистрироваться</a>
-        <a class="nav-item nav-link" href="#">Войти</a>
+        <a class="nav-item nav-link" href="{% url 'register' %}">Зарегистрироваться</a>
+        <a class="nav-item nav-link" href="{% url 'login' %}">Войти</a>
         {% endif %}
       </div>
     </div>

@@ -2,13 +2,15 @@
 
 
 {% block content %}
-<form action = "" method = "POST">
+<form  method = "POST" enctype="multipart/form-data">
     {% csrf_token %}
-    
+    {{ form.media }}
+    <b>
     <div class = 'form_group'>
-        {{ form.as_p }}
+    {{ form.as_p }}
     </div>
         
-    <button type="submit" class="btn btn-primary">Добавить марку,модель КДМ</button>
+    <button type="submit" class="btn btn-primary" formmethod="post">Добавить</button>
+    </b>
 </form>
 {% endblock%}
