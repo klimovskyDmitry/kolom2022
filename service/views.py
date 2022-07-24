@@ -1,3 +1,4 @@
+from itertools import count
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.shortcuts import redirect, render, get_object_or_404, reverse
@@ -5,8 +6,8 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import KDM, KDMI, PUMVS, VPM, PUPRICEP
-from .forms import KdmForm, KdmiForm
+from .models import KDM, PUMVS, VPM, PUPRICEP, Createphotokdm
+from .forms import KdmForm, CreatephotokdmForm
 from django.forms import modelform_factory, modelformset_factory
 from logging.config import IDENTIFIER
 from django.contrib.auth.decorators import login_required, permission_required
@@ -45,27 +46,42 @@ def navbar (req):
 #     return render (req, 'for_roadway.html')
 
 def kdm (req):
-    all_kdms = {'kdms' : KDM.objects.all()}
-    return render (req, 'kdm.html', all_kdms)
-def kdmi (req):
-    all_kdmis = {'kdmis' : KDMI.objects.all()}
-    return render (req, 'kdm.html', all_kdmis)
-
+    
+    return render (req, 'kdm.html',{'kdms' : KDM.objects.all(),'kdm1s' : Createphotokdm.objects.all() })
 
 def pumvs (req):
     all_pumvss = {'pumvss' : PUMVS.objects.all()}
     return render (req, 'pumvs.html', all_pumvss)
 
-def photo_kdm (req, pk):
-    
+def photo_kdm (req, pk):    
     kdm = get_object_or_404(KDM, pk=pk)
-    return render(req, 'photo/md651.html', {'kdm': kdm})
+    a = Createphotokdm.objects.filter(im=kdm.pk)
+   
+    return render(req, 'photo/kdm_gallery.html', {'kdm': kdm, 'a':a})
+
+
+
+def create_photo_kdm (req):
+    kdm = CreatephotokdmForm()
+    if req.method == "POST":
+        kdm = CreatephotokdmForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('kdm')
+        
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def comments_kdm (req, pk):    
+    kdm = get_object_or_404(KDM, pk=pk)
+    return render(req, 'comments/kdm_comments.html', {'kdm': kdm})
 
 
 def create_kdm (req):
     kdm_form = KdmForm()
     if req.method == "POST":
         kdm_form = KdmForm(req.POST, req.FILES)
+    
         if kdm_form.is_valid():
             kdm_form.save()
             return redirect ('kdm')

@@ -36,7 +36,7 @@ table, thead, tbody {
                 
                         {% for kdm in kdms%}
                             <tr valign="middle">
-                                <td> {{kdm.name}}</td>
+                                <td><b> {{kdm.name}} <b></td>
                                 <td> {{kdm.chassis}}</td>
                                 <td> {{kdm.factory}}</td> 
                                 <td> 
@@ -44,12 +44,23 @@ table, thead, tbody {
                                         <img src = "{{kdm.image.url}}" style="align='center'; max-width:200px; max-height:150px; margin:3px  ">
                                   {% endif %} </td>
                                 <td align = "center">
-                                    {% if kdm.image1 %}  
+                                    {% if kdm.image %}  
                                     <a class="btn btn-info btn-sm btn-block" href="{% url 'photo_kdm'  pk=kdm.pk %}">Просмотр галереи</a>
                                     {% endif %} </td>
-                                <td align = "center"><a class="btn btn-warning btn-sm btn-block" href="#">Добавить фото</a> </td>
+                                    
+                                    
+                                <td align = "center">
+                                    
+                                                               
+                                    <a class="btn btn-warning btn-sm btn-block" href="{% url 'create_photo_kdm' %}">Добавить фото</a>
+                                    
+                                    
+                                </td>
+                    
+                                
+                                
                                 <td align = "center"><a class="btn btn-success btn-sm btn-block" href="#">Узнать характеристики</a> </td>
-                                <td align = "center"><a class="btn btn-secondary btn-sm btn-block" href="#">Просмотр и добавление</a> </td>
+                                <td align = "center"><a class="btn btn-secondary btn-sm btn-block" href="{% url 'comments_kdm'  pk=kdm.pk %}">Просмотр и добавление</a> </td> 
 
 
                                 {% comment %} <td> {{book.published|date:"DATETIME_FORMAT"}}</td>
