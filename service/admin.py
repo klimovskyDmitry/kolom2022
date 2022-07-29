@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Auto, KDM, PUMVS, VPM, PUPRICEP, Createphotokdm
+from .models import Auto, KDM, PUMVS, VPM, PUPRICEP, Createphotokdm, Createcommentskdm
 
 @ admin.register (Auto)
 class AutoAdmin (admin.ModelAdmin):
@@ -12,9 +12,12 @@ class KDMAdmin (admin.ModelAdmin):
 
 @ admin.register (Createphotokdm)
 class CreatephotokdmAdmin (admin.ModelAdmin):
-    list_display = ('im', 'image1', 'image2', 'image3')    
-
+    list_display = ('im', 'image1', 'image2', 'image3')
     
+@ admin.register (Createcommentskdm)
+class CreatecommentskdmAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+
 @ admin.register (PUMVS)
 class PUMVSAdmin (admin.ModelAdmin):
     list_display = ('name', 'factory', 'image')

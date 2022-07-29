@@ -25,15 +25,21 @@
   <br/>
   
   
-  <ul>
-    <li> <a class="btn btn-info btn-sm btn-block" href="{% url 'roadway' %}"> <b>Техника для уборки проезжей части </b> </a> </li>
-    <li> Тротуароуборочная техника </li>
-    <li> Фронтальные погрузчики </li>
-    <li> Снегопогрузчики </li>
-    <li> Грейдеры </li>
-    <li> Бульдозеры </li>
-  </ul>
- 
+  <div class="container">
+    <div class="btn-group-vertical" style="width: 30%;">
+      <h3><a button type="button" class="btn btn-info" href="{% url 'roadway' %}"> <b>Техника для уборки проезжей части </b> </a></h3>
+      <h3><a button type="button" class="btn btn-info" href="#"> <b>Тротуароуборочная техника </b> </a> </h3>
+      <h3><a button type="button" class="btn btn-info" href="#"> <b>Фронтальные погрузчики </b> </a> </h3>
+      <h3><a button type="button" class="btn btn-info" href="#"> <b>Снегопогрузчики и ФРО </b> </a> </h3>
+      <h3><a button type="button" class="btn btn-info" href="#"> <b>Грейдеры </b> </a> </h3>
+      <h3><a button type="button" class="btn btn-info" href="#"> <b>Бульдозеры </b> </a> </h3>
+      <h3><a button type="button" class="btn btn-info" href="#"> <b>Снегоплавильные машины </b> </a> </h3>
+    
+    
+    </div>
+  </div>
+
+
 {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

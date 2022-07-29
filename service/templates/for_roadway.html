@@ -1,5 +1,17 @@
 {% comment %} {% extends 'index.html' %} {% endcomment %}
+{% load static%}
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>      </title>
+  <link rel = "stylesheet" href = '/static/css/main.css'> 
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+   crossorigin="anonymous">
+</head>
 <style>
     
     body {
@@ -17,36 +29,25 @@
       }  
     
 </style>
+<body>
 
-{% comment %} {% block content %} {% endcomment %}
-    {% comment %} <div class = 'container'> {% endcomment %}
         <h1 align = 'center'><b> Техника для уборки проезжей части </b></h1>
+        <br/>
         
-  <h3>  
-  <ul><b>
-    <li> <a href="{% url 'kdm' %}"> Комбинированные дорожные машины (КДМ) </a></li>
-    <li> <a href="{% url 'pumvs' %}">ПУМ-ВС </a></li>
-    <li> Вакуумные подметально-уборочные (ВПМ) </li>
-    <li> Подметально-уборочные прицепы </li>
+        <div class="container">
+        <div class="btn-group-vertical btn-block" style="width: 30%;">   
+<h3>  
+  <b>
+
+    <a button type="button" class="btn btn-secondary" href="{% url 'kdm' %}"> Комбинированные дорожные машины (КДМ) </a> 
+    <a button type="button" class="btn btn-secondary" href="{% url 'pumvs' %}"> ПУМ-ВС </a>
+    <a button type="button" class="btn btn-secondary" href="#"> Вакуумные подметально-уборочные (ВПМ) </a>
+    <a button type="button" class="btn btn-secondary" href="#"> Подметально-уборочные прицепы </a>
     
-  </b></ul>
+  </b>
 </h3>
-        {% comment %} <div class = 'card card-block'> {% endcomment %}
-          
+<div>
+  <div>
+
+</body>
         
-           {% comment %} <table class = "table table-striped">
-                <thead>
-                   <tr>
-                       <th scope = 'col'> pk </th>
-                       <th scope = 'col'> Название </th>
-                       <th scope = 'col'> Описание </th>
-                       <th scope = 'col'> Дата публикации </th>
-                       <th scope = 'col'> Изменить </th>
-                       <th scope = 'col'> Удалить </th>
-                   </tr>
-                </thead> {% endcomment %}
-                
-                 
-        {% comment %} </div>
-    </div> {% endcomment %}
-{% comment %} {% endblock %} {% endcomment %}

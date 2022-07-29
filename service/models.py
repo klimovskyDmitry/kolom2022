@@ -25,9 +25,12 @@ class KDM (models.Model):
     image9 = models.ImageField (verbose_name= 'Фото9', blank=True)
     image10 = models.ImageField (verbose_name= 'Фото10', blank=True)
         
-    tech = models.TextField (verbose_name= 'Технические характеристики', blank=True)
-    comment = models.TextField (verbose_name= 'Комментарии', blank=True)
+    tech = models.FileField (verbose_name= 'Технические характеристики',null = True, blank=True)
+    comment = models.TextField (verbose_name= 'Комментарии', null = True, blank=True)
     id = models.IntegerField(primary_key=True)
+    
+    def __str__ (self):
+        return self.name
     
     
 class Createphotokdm (models.Model):
@@ -35,6 +38,10 @@ class Createphotokdm (models.Model):
     image1 = models.ImageField (verbose_name= 'Фото1', null=True, blank=True)
     image2 = models.ImageField (verbose_name= 'Фото2', null=True, blank=True)
     image3 = models.ImageField (verbose_name= 'Фото3', null=True, blank=True)
+
+class Createcommentskdm (models.Model):
+    name = models.ForeignKey("KDM", null=True, on_delete=models.CASCADE)
+    comment = models.TextField (verbose_name= 'Комментарии', null = True, blank=True)
     
     
 class PUMVS (models.Model):

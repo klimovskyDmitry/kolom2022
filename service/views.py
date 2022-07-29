@@ -6,8 +6,8 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import KDM, PUMVS, VPM, PUPRICEP, Createphotokdm
-from .forms import KdmForm, CreatephotokdmForm
+from .models import KDM, PUMVS, VPM, PUPRICEP, Createphotokdm, Createcommentskdm
+from .forms import RegisterUserForm, KdmForm, CreatephotokdmForm, CreatecommentskdmForm
 from django.forms import modelform_factory, modelformset_factory
 from logging.config import IDENTIFIER
 from django.contrib.auth.decorators import login_required, permission_required
@@ -16,9 +16,9 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 
 
-class RegisterForm (SuccessMessageMixin, CreateView):
-    form_class = UserCreationForm
-    success_message = "%(username)s was created successfully"
+class RegisterUser (SuccessMessageMixin, CreateView):
+    form_class = RegisterUserForm
+    success_message = "%(username)s успешно зарегистрирован"
     template_name = 'register.html'
     success_url = reverse_lazy ('index')
     
@@ -26,6 +26,10 @@ class RegisterForm (SuccessMessageMixin, CreateView):
 @login_required
 def roadway (req):
     return render (req, 'for_roadway.html')
+
+
+
+
     
     
 # class PostView (LoginRequiredMixin, ListView):
@@ -42,12 +46,9 @@ def navbar (req):
     return render (req, 'navbar.html')
 
 
-# def roadway (req):
-#     return render (req, 'for_roadway.html')
-
 def kdm (req):
     
-    return render (req, 'kdm.html',{'kdms' : KDM.objects.all(),'kdm1s' : Createphotokdm.objects.all() })
+    return render (req, 'kdm.html',{'kdms' : KDM.objects.all()})
 
 def pumvs (req):
     all_pumvss = {'pumvss' : PUMVS.objects.all()}
@@ -59,8 +60,6 @@ def photo_kdm (req, pk):
    
     return render(req, 'photo/kdm_gallery.html', {'kdm': kdm, 'a':a})
 
-
-
 def create_photo_kdm (req):
     kdm = CreatephotokdmForm()
     if req.method == "POST":
@@ -68,13 +67,31 @@ def create_photo_kdm (req):
         if kdm.is_valid():
             kdm.save()
             return redirect ('kdm')
-        
     return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_kdm (req):
+    kdm = CreatecommentskdmForm()
+    if req.method == "POST":
+        kdm = CreatecommentskdmForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('kdm')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+
+def tech (req, pk):    
+    kdm = get_object_or_404(KDM, pk=pk)
+    return render(req, 'tech/kdm_tech.html', {'kdm': kdm})
+
+
 
 
 def comments_kdm (req, pk):    
     kdm = get_object_or_404(KDM, pk=pk)
-    return render(req, 'comments/kdm_comments.html', {'kdm': kdm})
+    a = Createcommentskdm.objects.filter(name=kdm.pk)
+    return render(req, 'comments/kdm_comments.html', {'kdm': kdm, 'a':a})
+
 
 
 def create_kdm (req):

@@ -48,18 +48,10 @@ table, thead, tbody {
                                     <a class="btn btn-info btn-sm btn-block" href="{% url 'photo_kdm'  pk=kdm.pk %}">Просмотр галереи</a>
                                     {% endif %} </td>
                                     
-                                    
-                                <td align = "center">
-                                    
-                                                               
+                                <td align = "center">                                                             
                                     <a class="btn btn-warning btn-sm btn-block" href="{% url 'create_photo_kdm' %}">Добавить фото</a>
-                                    
-                                    
                                 </td>
-                    
-                                
-                                
-                                <td align = "center"><a class="btn btn-success btn-sm btn-block" href="#">Узнать характеристики</a> </td>
+                                <td align = "center"><a class="btn btn-success btn-sm btn-block" href="{% url 'tech' pk=kdm.pk %}">Узнать характеристики</a> </td>
                                 <td align = "center"><a class="btn btn-secondary btn-sm btn-block" href="{% url 'comments_kdm'  pk=kdm.pk %}">Просмотр и добавление</a> </td> 
 
 
