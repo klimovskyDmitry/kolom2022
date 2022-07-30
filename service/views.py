@@ -5,8 +5,9 @@ from django.shortcuts import redirect, render, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.models import User
 from .models import KDM, PUMVS, VPM, PUPRICEP, Createphotokdm, Createcommentskdm
+
 from .forms import RegisterUserForm, KdmForm, CreatephotokdmForm, CreatecommentskdmForm
 from django.forms import modelform_factory, modelformset_factory
 from logging.config import IDENTIFIER
@@ -90,7 +91,8 @@ def tech (req, pk):
 def comments_kdm (req, pk):    
     kdm = get_object_or_404(KDM, pk=pk)
     a = Createcommentskdm.objects.filter(name=kdm.pk)
-    return render(req, 'comments/kdm_comments.html', {'kdm': kdm, 'a':a})
+    b = User.objects.all()
+    return render(req, 'comments/kdm_comments.html', {'kdm': kdm, 'a':a, 'b':b})
 
 
 

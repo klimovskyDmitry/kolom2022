@@ -45,7 +45,9 @@
 {% for aa in a %} 
 {% if aa %}
 {% if aa.comment %}       
+         
 <h6 style = "word-break: break-all;"> {{aa.comment}} </h6>
+       
 {%endif%}
 {%endif%}
 {%endfor%}
@@ -54,25 +56,46 @@
 </td> 
 <br>
 
-
-
-
 {%endif%}
-
-
-
 
 
 {% if not kdm.comment  %}  
     {% if kdm.image  %}     
-<img src = "{{kdm.image.url}}" style=" max-width:500px; max-height:300px; margin:3px; border: 1px solid black; "> 
+    <img src = "{{kdm.image.url}}" style=" max-width:500px; max-height:300px; margin:3px; border: 1px solid black; "> 
     {%endif%}
     <br/>
     <br/>
-    <a button type="button" class="btn btn-primary" href="{% url 'create_comments_kdm' %}"> <b>Добавить комментарий </b> </a> </h3>
-    <td valign="top"><h3><b> Комментариев к {{kdm.name}} пока никто не оставил </b></h3>                    
 
+    <a button type="button" class="btn btn-primary" href="{% url 'create_comments_kdm' %}"> <b>Добавить комментарий </b> </a> </h3>
+   
+    
+    
+  
+<td valign="top" > <h3><b> КОММЕНТАРИИ: </b></h3><br/>        
+        
+{% for aa in a %} 
+
+{% if aa.comment %}       
+
+<h6 style = "word-break: break-all;"> {{aa.comment}} </h6>
+       
 {%endif%}
+{% if not aa.comment  %}  
+<h3><b> Комментариев к {{kdm.name}} пока никто не оставил </b></h3> 
+{%endif%}
+
+{%endfor%}
+
+    </td>
+{%endif%} 
+
+
+
+
+
+
+
+
 
 {% endif %}
 </tr>
