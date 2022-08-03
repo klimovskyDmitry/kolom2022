@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% comment %} <style>
+table, thead, tbody {
+    
+    border: 1px solid black;
+   }
+
+</style> {% endcomment %}
+
+{% comment %} <link rel = "stylesheet" href = '/static/css/kdm.css'>  {% endcomment %}
+
+
+{% block content %}
+    <div class = 'container'>
+        <h1 align = 'center'  ><b> ПУМ-ВС </b></h1>
+   <div class = 'card card-block'> 
+          <a class="btn btn-primary btn-lg btn-block" href="{% url 'create_pumvs' %}">Добавить новую марку,модель ПУМ-ВС</a>
+        
+           <table class="table table-bordered" style="border:1px solid; margin:0px;">
+                <thead>
+                   <tr align="center" valign="middle">
+                       
+                       <th style="width:15%;"> Марка, модель </th>
+                       <th style="width:15%;"> Шасси </th>
+                       <th style="width:15%;"> Завод-изготовитель </th>
+                       <th style="width:15%;"> Фото </th>
+                       <th style="width:10%;"> Галерея фото </th>
+                       <th style="width:10%;"> Добавить своё фото </th>
+                       <th style="width:10%;"> Технические характеристики </th>
+                       <th style="width:10%;"> Комментарии </th>
+
+                   </tr>
+                </thead>
+                <tbody>
+                    {% if pumvss %}
+                
+                        {% for pumvs in pumvss%}
+                            <tr valign="middle">
+                                <td><b> {{pumvs.name}} <b></td>
+                                <td> {{pumvs.chassis}}</td>
+                                <td> {{pumvs.factory}}</td> 
+                                <td> 
+                                  {% if pumvs.image %}                          
+                                        <img src = "{{pumvs.image.url}}" style="align='center'; max-width:200px; max-height:150px; margin:3px  ">
+                                  {% endif %} </td>
+                                <td align = "center">
+                                    {% if pumvs.image %}  
+                                    <a class="btn btn-info btn-sm btn-block" href="{% url 'photo_pumvs'  pk=pumvs.pk %}">Просмотр галереи</a>
+                                    {% endif %} </td>
+                                    
+                                <td align = "center">                                                             
+                                    <a class="btn btn-warning btn-sm btn-block" href="{% url 'create_photo_pumvs' %}">Добавить фото</a>
+                                </td>
+                                <td align = "center"><a class="btn btn-success btn-sm btn-block" href="{% url 'tech_pumvs' pk=pumvs.pk %}">Узнать характеристики</a> </td>
+                                <td align = "center"><a class="btn btn-secondary btn-sm btn-block" href="{% url 'comments_pumvs'  pk=pumvs.pk %}">Просмотр и добавление</a> </td> 
+
+
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <p> No photo </p>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div> 
+     </div> 
+{% endblock %}

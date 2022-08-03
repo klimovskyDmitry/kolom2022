@@ -55,10 +55,6 @@ table, thead, tbody {
                                 <td align = "center"><a class="btn btn-secondary btn-sm btn-block" href="{% url 'comments_kdm'  pk=kdm.pk %}">Просмотр и добавление</a> </td> 
 
 
-                                {% comment %} <td> {{book.published|date:"DATETIME_FORMAT"}}</td>
-                                <td> <a class="btn btn-sn btn-info" href="{% url 'update_book' book.pk %}">Обновить</a></td>
-                                <td> <a class="btn btn-sn btn-danger" href="{% url 'delete_book' book.pk %}">Удалить</a></td> {% endcomment %}
-
                             </tr>
                         {% endfor %}
                     {% else %}

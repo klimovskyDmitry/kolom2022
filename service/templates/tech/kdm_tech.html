@@ -14,24 +14,25 @@
 <body>
 
 
-</br>
+<br/>
 {% if kdm.tech %}
 
-<h3 align="center"><b> Технические характеристики </b></h3>  
-<br/>     
-
-<h4 align = "center">Откройте файл: </br></br>
-  <a href="{{kdm.tech.url}}" > {{kdm.tech}}</a> </br></br>
-  <a href="/media/МД-651.pdf" > {{kdm.tech}}</a></br></br>
+<h3 align="center"><b> Технические характеристики </b></h3> <br/>     
+<h4 align = "center">Откройте файл: <br/><br/>
+  <a href="{{kdm.tech.url}}" > {{kdm.tech}}</a> <br/><br/>
 </h4>
-  
 {% endif %} 
 
-{% if not kdm.tech  %}  
-    
+{% if not kdm.tech  %}   
 <br><h3 align="center"><b> Файл с техническими характеристиками {{kdm.name}} пока никто не загрузил </b></h3>                       
-
 {%endif%}
+
+<br/><br/><br/>
+<p align = "center">                                                             
+  <a class="btn btn-warning btn-sm btn-block" href="{% url 'create_tech_kdm' %}"><b>Добавьте свой вариант ТХ</b></a>
+  
+</p>
+<p align = "center"> Админ проверит Ваш вариант и добавит его в список файлов </p>
 
 </body>
 </html>

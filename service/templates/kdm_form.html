@@ -1,12 +1,11 @@
 {%  extends 'kdm.html' %}
 
-
 {% block content %}
 <form  method = "POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.media }}
     <b>
-    <div class = 'container'>
+    <div class = 'container' style = 'color : chocolate;'>
     <div class = 'form_group'>
     {{ form.as_p }}
     
