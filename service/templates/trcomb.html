@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% comment %} <style>
+table, thead, tbody {
+    
+    border: 1px solid black;
+   }
+
+</style> {% endcomment %}
+
+{% comment %} <link rel = "stylesheet" href = '/static/css/kdm.css'>  {% endcomment %}
+
+
+{% block content %}
+    <div class = 'container'>
+        <h1 align = 'center'  ><b> Многофункциональные </b></h1>
+   <div class = 'card card-block'> 
+          <a class="btn btn-primary btn-lg btn-block" href="{% url 'create_trcomb' %}">Добавить новую марку,модель многофункциональной тротуароуборочной машины</a>
+        
+           <table class="table table-bordered" style="border:1px solid; margin:0px;">
+                <thead>
+                   <tr align="center" valign="middle">
+                       
+                       <th style="width:15%;"> Марка, модель </th>
+                       
+                       <th style="width:15%;"> Завод-изготовитель </th>
+                       <th style="width:15%;"> Фото </th>
+                       <th style="width:10%;"> Галерея фото </th>
+                       <th style="width:10%;"> Добавить своё фото </th>
+                       <th style="width:10%;"> Технические характеристики </th>
+                       <th style="width:10%;"> Комментарии </th>
+
+                   </tr>
+                </thead>
+                <tbody>
+                    {% if trcombs %}
+                
+                        {% for trcomb in trcombs %}
+                            <tr valign="middle">
+                                <td><b> {{trcomb.name}} <b></td>
+                                
+                                <td> {{trcomb.factory}}</td> 
+                                <td> 
+                                  {% if trcomb.image %}                          
+                                        <img src = "{{trcomb.image.url}}" style="align='center'; max-width:200px; max-height:150px; margin:3px  ">
+                                  {% endif %} </td>
+                                <td align = "center">
+                                    {% if trcomb.image %}  
+                                    <a class="btn btn-info btn-sm btn-block" href="{% url 'photo_trcomb'  pk=trcomb.pk %}">Просмотр галереи</a>
+                                    {% endif %} </td>
+                                    
+                                <td align = "center">                                                             
+                                    <a class="btn btn-warning btn-sm btn-block" href="{% url 'create_photo_trcomb' %}">Добавить фото</a>
+                                </td>
+                                <td align = "center"><a class="btn btn-success btn-sm btn-block" href="{% url 'tech_trcomb' pk=trcomb.pk %}">Узнать характеристики</a> </td>
+                                <td align = "center"><a class="btn btn-secondary btn-sm btn-block" href="{% url 'comments_trcomb'  pk=trcomb.pk %}">Просмотр и добавление</a> </td> 
+
+
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <p> No photo </p>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div> 
+     </div> 
+{% endblock %}

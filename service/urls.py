@@ -15,7 +15,7 @@ urlpatterns = [
     path ('register', RegisterUser.as_view(), name = 'register'),
     
     path ('roadway/', roadway, name = 'roadway'),
-    
+    path ('sidewalk/', sidewalk, name = 'sidewalk'),
     
     
     
@@ -24,6 +24,11 @@ urlpatterns = [
     path ('pumvs', pumvs, name = 'pumvs'),
     path ('vpm', vpm, name = 'vpm'),
     path ('pupricep', pupricep, name = 'pupricep'),
+    
+    path ('trcomb', trcomb, name = 'trcomb'),
+    path ('tract', tract, name = 'tract'),
+    path ('trvpm', trvpm, name = 'trvpm'),
+    path ('trpricep', trpricep, name = 'trpricep'),
     
     
     path ('create_kdm', create_kdm, name = 'create_kdm'),
@@ -57,6 +62,17 @@ urlpatterns = [
     path ('tech_pupricep/<int:pk>/', tech_pupricep, name = 'tech_pupricep'),
     path ('create_tech_pupricep', create_tech_pupricep, name = 'create_tech_pupricep'),
     path ('comments_pupricep/<int:pk>/', comments_pupricep, name = 'comments_pupricep'),
+    
+    path ('create_trcomb', create_trcomb, name = 'create_trcomb'),
+    path ('create_photo_trcomb', create_photo_trcomb, name = 'create_photo_trcomb'),
+    path ('create_comments_trcomb', create_comments_trcomb, name = 'create_comments_trcomb'),
+    path ('photo_trcomb/<int:pk>/', photo_trcomb, name = 'photo_trcomb'),
+    path ('tech_trcomb/<int:pk>/', tech_trcomb, name = 'tech_trcomb'),
+    path ('create_tech_trcomb', create_tech_trcomb, name = 'create_tech_trcomb'),
+    path ('comments_trcomb/<int:pk>/', comments_trcomb, name = 'comments_trcomb'),
+    
+    
+    
     
     
 ]

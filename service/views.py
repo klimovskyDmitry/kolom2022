@@ -61,6 +61,22 @@ def vpm (req):
 def pupricep (req):
     return render (req, 'pupricep.html', {'pupriceps' : PUPRICEP.objects.all()})
 
+def trcomb (req):
+    return render (req, 'trcomb.html',{'trcombs' : TRCOMB.objects.all()})
+
+def tract (req):
+    return render (req, 'tract.html',{'tracts' : TRACT.objects.all()})
+
+def trvpm (req):
+    return render (req, 'trvpm.html',{'trvpms' : TRVPM.objects.all()})
+
+def trpricep (req):
+    return render (req, 'trpricep.html',{'trpriceps' : TRPRICEP.objects.all()})
+
+
+
+
+
 
 def photo_kdm (req, pk):    
     kdm = get_object_or_404(KDM, pk=pk)
@@ -268,4 +284,56 @@ def create_pupricep (req):
         if kdm_form.is_valid():
             kdm_form.save()
             return redirect ('pupricep')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_trcomb (req, pk):    
+    kdm = get_object_or_404(TRCOMB, pk=pk)
+    a = Createphototrcomb.objects.filter(im=kdm.pk)
+    return render(req, 'photo/trcomb_gallery.html', {'trcomb': kdm, 'a':a})
+
+def create_photo_trcomb (req):
+    kdm = CreatephototrcombForm()
+    if req.method == "POST":
+        kdm = CreatephototrcombForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trcomb')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_trcomb (req):
+    kdm = CreatecommentstrcombForm()
+    if req.method == "POST":
+        kdm = CreatecommentstrcombForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trcomb')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_trcomb (req, pk):    
+    kdm = get_object_or_404(TRCOMB, pk=pk)
+    return render(req, 'tech/trcomb_tech.html', {'trcomb': kdm})
+
+def create_tech_trcomb (req):
+    kdm = TechtrcombForm()
+    if req.method == "POST":
+        kdm = TechtrcombForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trcomb')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_trcomb (req, pk):    
+    kdm = get_object_or_404(TRCOMB, pk=pk)
+    a = Createcommentstrcomb.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/trcomb_comments.html', {'trcomb': kdm, 'a':a, 'b':b})
+
+def create_trcomb (req):
+    kdm_form = TrcombForm()
+    if req.method == "POST":
+        kdm_form = TrcombForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('trcomb')
     return render (req, 'kdm_form.html', {'form': kdm_form})

@@ -118,3 +118,103 @@ class TechpupricepForm (forms.ModelForm):
         model = TechPUPRICEP
         fields = ['name', 'tech', ]
         labels = {"name" : 'Выберите марку'}
+        
+class TrcombForm (forms.ModelForm):
+    class Meta:
+        model = TRCOMB
+        fields = ['name', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephototrcombForm (forms.ModelForm):
+    class Meta:
+        model = Createphototrcomb
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentstrcombForm (forms.ModelForm):
+    class Meta:
+        model = Createcommentstrcomb
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechtrcombForm (forms.ModelForm):
+    class Meta:
+        model = TechTRCOMB
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TractForm (forms.ModelForm):
+    class Meta:
+        model = TRACT
+        fields = ['name', 'chassis', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephototractForm (forms.ModelForm):
+    class Meta:
+        model = Createphototract
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentstractForm (forms.ModelForm):
+    class Meta:
+        model = Createcommentstract
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechtractForm (forms.ModelForm):
+    class Meta:
+        model = TechTRACT
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TrvpmForm (forms.ModelForm):
+    class Meta:
+        model = TRVPM
+        fields = ['name', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephototrvpmForm (forms.ModelForm):
+    class Meta:
+        model = Createphototrvpm
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentstrvpmForm (forms.ModelForm):
+    class Meta:
+        model = Createcommentstrvpm
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechtrvpmForm (forms.ModelForm):
+    class Meta:
+        model = TechTRVPM
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TrpricepForm (forms.ModelForm):
+    class Meta:
+        model = TRPRICEP
+        fields = ['name', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephototrpricepForm (forms.ModelForm):
+    class Meta:
+        model = Createphototrpricep
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentstrpricepForm (forms.ModelForm):
+    class Meta:
+        model = Createcommentstrpricep
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechtrpricepForm (forms.ModelForm):
+    class Meta:
+        model = TechTRPRICEP
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}

@@ -70,3 +70,67 @@ class CreatecommentspupricepAdmin (admin.ModelAdmin):
 @ admin.register (TechPUPRICEP)
 class TechPUPRICEPAdmin (admin.ModelAdmin):
     list_display = ('name', 'tech')  
+    
+@ admin.register (TRCOMB)
+class TRCOMBAdmin (admin.ModelAdmin):
+    list_display = ('name', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (Createphototrcomb)
+class CreatephototrcombAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (Createcommentstrcomb)
+class CreatecommentstrcombAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechTRCOMB)
+class TechTRCOMBAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech')  
+
+@ admin.register (TRACT)
+class TRACTAdmin (admin.ModelAdmin):
+    list_display = ('name', 'chassis', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (Createphototract)
+class CreatephototractAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (Createcommentstract)
+class CreatecommentstractAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechTRACT)
+class TechTRACTAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech')  
+    
+@ admin.register (TRVPM)
+class TRVPMAdmin (admin.ModelAdmin):
+    list_display = ('name', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (Createphototrvpm)
+class CreatephototrvpmAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (Createcommentstrvpm)
+class CreatecommentstrvpmAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechTRVPM)
+class TechTRVPMAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech')  
+    
+@ admin.register (TRPRICEP)
+class TRPRICEPAdmin (admin.ModelAdmin):
+    list_display = ('name', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (Createphototrpricep)
+class CreatephototrpricepAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (Createcommentstrpricep)
+class CreatecommentstrpricepAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechTRPRICEP)
+class TechTRPRICEPAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech')  
