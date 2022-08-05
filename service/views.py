@@ -441,3 +441,55 @@ def create_trvpm (req):
             kdm_form.save()
             return redirect ('trvpm')
     return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    a = Createphototrpricep.objects.filter(im=kdm.pk)
+    return render(req, 'photo/trpricep_gallery.html', {'trpricep': kdm, 'a':a})
+
+def create_photo_trpricep (req):
+    kdm = CreatephototrpricepForm()
+    if req.method == "POST":
+        kdm = CreatephototrpricepForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_trpricep (req):
+    kdm = CreatecommentstrpricepForm()
+    if req.method == "POST":
+        kdm = CreatecommentstrpricepForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    return render(req, 'tech/trpricep_tech.html', {'trpricep': kdm})
+
+def create_tech_trpricep (req):
+    kdm = TechtrpricepForm()
+    if req.method == "POST":
+        kdm = TechtrpricepForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    a = Createcommentstrpricep.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/trpricep_comments.html', {'trpricep': kdm, 'a':a, 'b':b})
+
+def create_trpricep (req):
+    kdm_form = TrpricepForm()
+    if req.method == "POST":
+        kdm_form = TrpricepForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
