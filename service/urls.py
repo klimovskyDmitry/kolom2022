@@ -71,7 +71,21 @@ urlpatterns = [
     path ('create_tech_trcomb', create_tech_trcomb, name = 'create_tech_trcomb'),
     path ('comments_trcomb/<int:pk>/', comments_trcomb, name = 'comments_trcomb'),
     
+    path ('create_tract', create_tract, name = 'create_tract'),
+    path ('create_photo_tract', create_photo_tract, name = 'create_photo_tract'),
+    path ('create_comments_ttract', create_comments_tract, name = 'create_comments_tract'),
+    path ('photo_tract/<int:pk>/', photo_tract, name = 'photo_tract'),
+    path ('tech_tract/<int:pk>/', tech_tract, name = 'tech_tract'),
+    path ('create_tech_tract', create_tech_tract, name = 'create_tech_tract'),
+    path ('comments_tract/<int:pk>/', comments_tract, name = 'comments_tract'),
     
+    path ('create_trvpm', create_trvpm, name = 'create_trvpm'),
+    path ('create_photo_trvpm', create_photo_trvpm, name = 'create_photo_trvpm'),
+    path ('create_comments_ttrvpm', create_comments_trvpm, name = 'create_comments_trvpm'),
+    path ('photo_trvpm/<int:pk>/', photo_trvpm, name = 'photo_trvpm'),
+    path ('tech_trvpm/<int:pk>/', tech_trvpm, name = 'tech_trvpm'),
+    path ('create_tech_trvpm', create_tech_trvpm, name = 'create_tech_trvpm'),
+    path ('comments_trvpm/<int:pk>/', comments_trvpm, name = 'comments_trvpm'),
     
     
     

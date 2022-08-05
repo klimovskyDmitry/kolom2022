@@ -337,3 +337,107 @@ def create_trcomb (req):
             kdm_form.save()
             return redirect ('trcomb')
     return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_tract (req, pk):    
+    kdm = get_object_or_404(TRACT, pk=pk)
+    a = Createphototract.objects.filter(im=kdm.pk)
+    return render(req, 'photo/tract_gallery.html', {'tract': kdm, 'a':a})
+
+def create_photo_tract (req):
+    kdm = CreatephototractForm()
+    if req.method == "POST":
+        kdm = CreatephototractForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('tract')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_tract (req):
+    kdm = CreatecommentstractForm()
+    if req.method == "POST":
+        kdm = CreatecommentstractForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('tract')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_tract (req, pk):    
+    kdm = get_object_or_404(TRACT, pk=pk)
+    return render(req, 'tech/tract_tech.html', {'tract': kdm})
+
+def create_tech_tract (req):
+    kdm = TechtractForm()
+    if req.method == "POST":
+        kdm = TechtractForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('tract')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_tract (req, pk):    
+    kdm = get_object_or_404(TRACT, pk=pk)
+    a = Createcommentstract.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/tract_comments.html', {'tract': kdm, 'a':a, 'b':b})
+
+def create_tract (req):
+    kdm_form = TractForm()
+    if req.method == "POST":
+        kdm_form = TractForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('tract')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_trvpm (req, pk):    
+    kdm = get_object_or_404(TRVPM, pk=pk)
+    a = Createphototrvpm.objects.filter(im=kdm.pk)
+    return render(req, 'photo/trvpm_gallery.html', {'trvpm': kdm, 'a':a})
+
+def create_photo_trvpm (req):
+    kdm = CreatephototrvpmForm()
+    if req.method == "POST":
+        kdm = CreatephototrvpmForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trvpm')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_trvpm (req):
+    kdm = CreatecommentstrvpmForm()
+    if req.method == "POST":
+        kdm = CreatecommentstrvpmForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trvpm')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_trvpm (req, pk):    
+    kdm = get_object_or_404(TRVPM, pk=pk)
+    return render(req, 'tech/trvpm_tech.html', {'trvpm': kdm})
+
+def create_tech_trvpm (req):
+    kdm = TechtrvpmForm()
+    if req.method == "POST":
+        kdm = TechtrvpmForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trvpm')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_trvpm (req, pk):    
+    kdm = get_object_or_404(TRVPM, pk=pk)
+    a = Createcommentstrvpm.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/trvpm_comments.html', {'trvpm': kdm, 'a':a, 'b':b})
+
+def create_trvpm (req):
+    kdm_form = TrvpmForm()
+    if req.method == "POST":
+        kdm_form = TrvpmForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('trvpm')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
