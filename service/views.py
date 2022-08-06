@@ -55,18 +55,6 @@ def snowmelting (req):
 
 
 
-
-
-
-    
-    
-# class PostView (LoginRequiredMixin, ListView):
-#     login_url = 'login'
-#     model = KDM
-#     template_name = "index.html"
-
-
-
 def index (req):
      return render (req, 'index.html')
 

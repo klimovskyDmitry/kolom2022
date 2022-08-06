@@ -1,0 +1,97 @@
+{% load static%}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>      </title>
+  {% comment %} <link rel = "stylesheet" href = "{% static 'css/main.css' %}" > {% endcomment %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+   crossorigin="anonymous"> 
+   <style type="text/css">
+    TD.leftcol {
+     width: 110px; /* Ширина левой колонки с рисунком */
+     vertical-align: top; /* Выравнивание по верхнему краю */
+    }
+    h3 {
+        color: green;
+        font-family: 'Times New Roman';
+         }
+   </style>
+
+</head>
+
+<body>
+    <table width="100%" cellspacing="0" cellpadding="5">
+        <tr> 
+        <td class="leftcol">
+         
+       
+ {% if gr %}
+
+{% if gr.comment  %}  
+    {% if gr.image  %}     
+<img src = "{{gr.image.url}}" style=" max-width:500px; max-height:300px; margin:3px; border: 1px solid black; "> 
+    
+    {%endif%}
+    <br/>
+    <br/>
+    <a button type="button" class="btn btn-primary" href="{% url 'create_comments_gr' %}"> <b>Добавить комментарий </b> </a> </h3>
+
+</td>
+    <td valign="top"><h3><b> КОММЕНТАРИИ: </b></h3><br/>
+              
+<h6> {{gr.comment}} </h6>
+{% for aa in a %} 
+{% if aa %}
+{% if aa.comment %}       
+         
+<h6 style = "word-break: break-all;"> {{aa.comment}} </h6>
+       
+{%endif%}
+{%endif%}
+{%endfor%}
+
+
+</td> 
+<br>
+
+{%endif%}
+
+
+{% if not gr.comment  %}  
+    {% if gr.image  %}     
+    <img src = "{{gr.image.url}}" style=" max-width:500px; max-height:300px; margin:3px; border: 1px solid black; "> 
+    {%endif%}
+    <br/>
+    <br/>
+
+    <a button type="button" class="btn btn-primary" href="{% url 'create_comments_gr' %}"> <b>Добавить комментарий </b> </a> </h3>
+   
+    
+    
+  
+<td valign="top" > <h3><b> КОММЕНТАРИИ: </b></h3><br/>        
+        
+{% for aa in a %} 
+
+{% if aa.comment %}       
+
+<h6 style = "word-break: break-all;"> {{aa.comment}} </h6>
+       
+{%endif%}
+{% if not aa.comment  %}  
+<h3><b> Комментариев к {{gr.name}} пока никто не оставил </b></h3> 
+{%endif%}
+
+{%endfor%}
+
+    </td>
+{%endif%} 
+
+{% endif %}
+</tr>
+</table>
+
+</body>
+</html>
