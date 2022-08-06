@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% comment %} <style>
+table, thead, tbody {
+    
+    border: 1px solid black;
+   }
+
+</style> {% endcomment %}
+
+{% comment %} <link rel = "stylesheet" href = '/static/css/kdm.css'>  {% endcomment %}
+
+
+{% block content %}
+    <div class = 'container'>
+        <h1 align = 'center'  ><b> Фронтальные погрузчики </b></h1>
+   <div class = 'card card-block'> 
+          <a class="btn btn-primary btn-lg btn-block" href="{% url 'create_fp' %}">Добавить новую марку,модель фронтального погрузчика</a>
+        
+           <table class="table table-bordered" style="border:1px solid; margin:0px;">
+                <thead>
+                   <tr align="center" valign="middle">
+                       
+                       <th style="width:15%;"> Марка, модель </th>
+                       
+                       <th style="width:15%;"> Завод-изготовитель </th>
+                       <th style="width:15%;"> Фото </th>
+                       <th style="width:10%;"> Галерея фото </th>
+                       <th style="width:10%;"> Добавить своё фото </th>
+                       <th style="width:10%;"> Технические характеристики </th>
+                       <th style="width:10%;"> Комментарии </th>
+
+                   </tr>
+                </thead>
+                <tbody>
+                    {% if fps %}
+                
+                        {% for fp in fps %}
+                            <tr valign="middle">
+                                <td><b> {{fp.name}} <b></td>
+                                
+                                <td> {{fp.factory}}</td> 
+                                <td> 
+                                  {% if fp.image %}                          
+                                        <img src = "{{fp.image.url}}" style="align='center'; max-width:200px; max-height:150px; margin:3px  ">
+                                  {% endif %} </td>
+                                <td align = "center">
+                                    {% if fp.image %}  
+                                    <a class="btn btn-info btn-sm btn-block" href="{% url 'photo_fp'  pk=fp.pk %}">Просмотр галереи</a>
+                                    {% endif %} </td>
+                                    
+                                <td align = "center">                                                             
+                                    <a class="btn btn-warning btn-sm btn-block" href="{% url 'create_photo_fp' %}">Добавить фото</a>
+                                </td>
+                                <td align = "center"><a class="btn btn-success btn-sm btn-block" href="{% url 'tech_fp' pk=fp.pk %}">Узнать характеристики</a> </td>
+                                <td align = "center"><a class="btn btn-secondary btn-sm btn-block" href="{% url 'comments_fp'  pk=fp.pk %}">Просмотр и добавление</a> </td> 
+
+
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <p> Нет фото </p>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div> 
+     </div> 
+{% endblock %}

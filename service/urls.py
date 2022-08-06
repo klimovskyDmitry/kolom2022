@@ -16,10 +16,12 @@ urlpatterns = [
     
     path ('roadway/', roadway, name = 'roadway'),
     path ('sidewalk/', sidewalk, name = 'sidewalk'),
-    
-    
-    
-    
+    path ('frontloader', frontloader, name = 'frontloader'),
+    path ('snowloader', snowloader, name = 'snowloader'),
+    path ('grader', grader, name = 'grader'),
+    path ('bulldozer', bulldozer, name = 'bulldozer'),
+    path ('snowmelting', snowmelting, name = 'snowmelting'),
+        
     path ('kdm', kdm, name = 'kdm'),
     path ('pumvs', pumvs, name = 'pumvs'),
     path ('vpm', vpm, name = 'vpm'),
@@ -29,7 +31,6 @@ urlpatterns = [
     path ('tract', tract, name = 'tract'),
     path ('trvpm', trvpm, name = 'trvpm'),
     path ('trpricep', trpricep, name = 'trpricep'),
-    
     
     path ('create_kdm', create_kdm, name = 'create_kdm'),
     path ('create_photo_kdm', create_photo_kdm, name = 'create_photo_kdm'),
@@ -95,6 +96,44 @@ urlpatterns = [
     path ('create_tech_trpricep', create_tech_trpricep, name = 'create_tech_trpricep'),
     path ('comments_trpricep/<int:pk>/', comments_trpricep, name = 'comments_trpricep'),
     
+    path ('create_fp', create_fp, name = 'create_fp'),
+    path ('create_photo_fp', create_photo_fp, name = 'create_photo_fp'),
+    path ('create_comments_fp', create_comments_fp, name = 'create_comments_fp'),
+    path ('photo_fp/<int:pk>/', photo_fp, name = 'photo_fp'),
+    path ('tech_fp/<int:pk>/', tech_fp, name = 'tech_fp'),
+    path ('create_tech_fp', create_tech_fp, name = 'create_tech_fp'),
+    path ('comments_fp/<int:pk>/', comments_fp, name = 'comments_fp'),
     
+    path ('create_sl', create_sl, name = 'create_sl'),
+    path ('create_photo_sl', create_photo_sl, name = 'create_photo_sl'),
+    path ('create_comments_sl', create_comments_sl, name = 'create_comments_sl'),
+    path ('photo_sl/<int:pk>/', photo_sl, name = 'photo_sl'),
+    path ('tech_sl/<int:pk>/', tech_sl, name = 'tech_sl'),
+    path ('create_tech_sl', create_tech_sl, name = 'create_tech_sl'),
+    path ('comments_sl/<int:pk>/', comments_sl, name = 'comments_sl'),
+    
+    path ('create_gr', create_gr, name = 'create_gr'),
+    path ('create_photo_gr', create_photo_gr, name = 'create_photo_gr'),
+    path ('create_comments_gr', create_comments_gr, name = 'create_comments_gr'),
+    path ('photo_gr/<int:pk>/', photo_gr, name = 'photo_gr'),
+    path ('tech_gr/<int:pk>/', tech_gr, name = 'tech_gr'),
+    path ('create_tech_gr', create_tech_gr, name = 'create_tech_gr'),
+    path ('comments_gr/<int:pk>/', comments_gr, name = 'comments_gr'),
+    
+    path ('create_bu', create_bu, name = 'create_bu'),
+    path ('create_photo_bu', create_photo_bu, name = 'create_photo_bu'),
+    path ('create_comments_bu', create_comments_bu, name = 'create_comments_bu'),
+    path ('photo_bu/<int:pk>/', photo_bu, name = 'photo_bu'),
+    path ('tech_bu/<int:pk>/', tech_bu, name = 'tech_bu'),
+    path ('create_tech_bu', create_tech_bu, name = 'create_tech_bu'),
+    path ('comments_bu/<int:pk>/', comments_bu, name = 'comments_bu'),
+    
+    path ('create_sm', create_sm, name = 'create_sm'),
+    path ('create_photo_sm', create_photo_sm, name = 'create_photo_sm'),
+    path ('create_comments_sm', create_comments_sm, name = 'create_comments_sm'),
+    path ('photo_sm/<int:pk>/', photo_sm, name = 'photo_sm'),
+    path ('tech_sm/<int:pk>/', tech_sm, name = 'tech_sm'),
+    path ('create_tech_sm', create_tech_sm, name = 'create_tech_smu'),
+    path ('comments_sm/<int:pk>/', comments_sm, name = 'comments_sm'),
     
 ]

@@ -218,3 +218,128 @@ class TechtrpricepForm (forms.ModelForm):
         model = TechTRPRICEP
         fields = ['name', 'tech', ]
         labels = {"name" : 'Выберите марку'}
+        
+class FPForm (forms.ModelForm):
+    class Meta:
+        model = FP
+        fields = ['name', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephotofpForm (forms.ModelForm):
+    class Meta:
+        model = Createphotofp
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentsfpForm (forms.ModelForm):
+    class Meta:
+        model = Createcommentsfp
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechfpForm (forms.ModelForm):
+    class Meta:
+        model = TechFP
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class SLForm (forms.ModelForm):
+    class Meta:
+        model = SNOWLOADER
+        fields = ['name', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephotoSLForm (forms.ModelForm):
+    class Meta:
+        model = CreatephotoSL
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentsSLForm (forms.ModelForm):
+    class Meta:
+        model = CreatecommentsSL
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechSLForm (forms.ModelForm):
+    class Meta:
+        model = TechSL
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class GRForm (forms.ModelForm):
+    class Meta:
+        model = GRADER
+        fields = ['name', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephotoGRForm (forms.ModelForm):
+    class Meta:
+        model = CreatephotoGR
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentsGRForm (forms.ModelForm):
+    class Meta:
+        model = CreatecommentsGR
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechGRForm (forms.ModelForm):
+    class Meta:
+        model = TechGR
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class BUForm (forms.ModelForm):
+    class Meta:
+        model = BULLDOZER
+        fields = ['name', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephotoBUForm (forms.ModelForm):
+    class Meta:
+        model = CreatephotoBU
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentsBUForm (forms.ModelForm):
+    class Meta:
+        model = CreatecommentsBU
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechBUForm (forms.ModelForm):
+    class Meta:
+        model = TechBU
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class SMForm (forms.ModelForm):
+    class Meta:
+        model = SNOWMELTING
+        fields = ['name', 'factory', 'image', 'image1', 'image2', 'image3', 'tech', 'comment', ]
+        
+        # widgets = {'name':widgets.Textarea}
+
+class CreatephotoSMForm (forms.ModelForm):
+    class Meta:
+        model = CreatephotoSM
+        fields = ['im', 'image1', 'image2', 'image3', ]
+        labels = {"im" : 'Выберите марку'}
+        
+class CreatecommentsSMForm (forms.ModelForm):
+    class Meta:
+        model = CreatecommentsSM
+        fields = ['name', 'comment', ]
+        labels = {"name" : 'Выберите марку'}
+        
+class TechSMForm (forms.ModelForm):
+    class Meta:
+        model = TechSM
+        fields = ['name', 'tech', ]
+        labels = {"name" : 'Выберите марку'}

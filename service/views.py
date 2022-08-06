@@ -33,6 +33,30 @@ def roadway (req):
 def sidewalk (req):
     return render (req, 'for_sidewalk.html')
 
+@login_required
+def frontloader (req):
+    return render (req, 'for_frontloader.html',{'fps' : FP.objects.all()})
+
+@login_required
+def snowloader (req):
+    return render (req, 'for_snowloader.html',{'sls' : SNOWLOADER.objects.all()})
+
+@login_required
+def grader (req):
+    return render (req, 'for_grader.html',{'grs' : GRADER.objects.all()})
+
+@login_required
+def bulldozer (req):
+    return render (req, 'for_bulldozer.html',{'bus' : BULLDOZER.objects.all()})
+
+@login_required
+def snowmelting (req):
+    return render (req, 'for_snowmelting.html',{'sms' : SNOWMELTING.objects.all()})
+
+
+
+
+
 
     
     
@@ -492,4 +516,368 @@ def create_trpricep (req):
         if kdm_form.is_valid():
             kdm_form.save()
             return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    a = Createphototrpricep.objects.filter(im=kdm.pk)
+    return render(req, 'photo/trpricep_gallery.html', {'trpricep': kdm, 'a':a})
+
+def create_photo_trpricep (req):
+    kdm = CreatephototrpricepForm()
+    if req.method == "POST":
+        kdm = CreatephototrpricepForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_trpricep (req):
+    kdm = CreatecommentstrpricepForm()
+    if req.method == "POST":
+        kdm = CreatecommentstrpricepForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    return render(req, 'tech/trpricep_tech.html', {'trpricep': kdm})
+
+def create_tech_trpricep (req):
+    kdm = TechtrpricepForm()
+    if req.method == "POST":
+        kdm = TechtrpricepForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    a = Createcommentstrpricep.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/trpricep_comments.html', {'trpricep': kdm, 'a':a, 'b':b})
+
+def create_trpricep (req):
+    kdm_form = TrpricepForm()
+    if req.method == "POST":
+        kdm_form = TrpricepForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    a = Createphototrpricep.objects.filter(im=kdm.pk)
+    return render(req, 'photo/trpricep_gallery.html', {'trpricep': kdm, 'a':a})
+
+def create_photo_trpricep (req):
+    kdm = CreatephototrpricepForm()
+    if req.method == "POST":
+        kdm = CreatephototrpricepForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_trpricep (req):
+    kdm = CreatecommentstrpricepForm()
+    if req.method == "POST":
+        kdm = CreatecommentstrpricepForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    return render(req, 'tech/trpricep_tech.html', {'trpricep': kdm})
+
+def create_tech_trpricep (req):
+    kdm = TechtrpricepForm()
+    if req.method == "POST":
+        kdm = TechtrpricepForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_trpricep (req, pk):    
+    kdm = get_object_or_404(TRPRICEP, pk=pk)
+    a = Createcommentstrpricep.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/trpricep_comments.html', {'trpricep': kdm, 'a':a, 'b':b})
+
+def create_trpricep (req):
+    kdm_form = TrpricepForm()
+    if req.method == "POST":
+        kdm_form = TrpricepForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('trpricep')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_fp (req, pk):    
+    kdm = get_object_or_404(FP, pk=pk)
+    a = Createphotofp.objects.filter(im=kdm.pk)
+    return render(req, 'photo/fp_gallery.html', {'fp': kdm, 'a':a})
+
+def create_photo_fp (req):
+    kdm = CreatephotofpForm()
+    if req.method == "POST":
+        kdm = CreatephotofpForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('frontloader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_fp (req):
+    kdm = CreatecommentsfpForm()
+    if req.method == "POST":
+        kdm = CreatecommentsfpForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('frontloader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_fp (req, pk):    
+    kdm = get_object_or_404(FP, pk=pk)
+    return render(req, 'tech/fp_tech.html', {'fp': kdm})
+
+def create_tech_fp (req):
+    kdm = TechfpForm()
+    if req.method == "POST":
+        kdm = TechfpForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('frontloader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_fp (req, pk):    
+    kdm = get_object_or_404(FP, pk=pk)
+    a = Createcommentsfp.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/fp_comments.html', {'fp': kdm, 'a':a, 'b':b})
+
+def create_fp (req):
+    kdm_form = FPForm()
+    if req.method == "POST":
+        kdm_form = FPForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('frontloader')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_sl (req, pk):    
+    kdm = get_object_or_404(SNOWLOADER, pk=pk)
+    a = CreatephotoSL.objects.filter(im=kdm.pk)
+    return render(req, 'photo/sl_gallery.html', {'sl': kdm, 'a':a})
+
+def create_photo_sl (req):
+    kdm = CreatephotoSLForm()
+    if req.method == "POST":
+        kdm = CreatephotoSLForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('snowloader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_sl (req):
+    kdm = CreatecommentsSLForm()
+    if req.method == "POST":
+        kdm = CreatecommentsSLForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('snowloader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_sl (req, pk):    
+    kdm = get_object_or_404(SNOWLOADER, pk=pk)
+    return render(req, 'tech/sl_tech.html', {'sl': kdm})
+
+def create_tech_sl (req):
+    kdm = TechSLForm()
+    if req.method == "POST":
+        kdm = TechSLForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('snowloader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_sl (req, pk):    
+    kdm = get_object_or_404(SNOWLOADER, pk=pk)
+    a = CreatecommentsSL.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/sl_comments.html', {'sl': kdm, 'a':a, 'b':b})
+
+def create_sl (req):
+    kdm_form = SLForm()
+    if req.method == "POST":
+        kdm_form = SLForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('snowloader')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_gr (req, pk):    
+    kdm = get_object_or_404(GRADER, pk=pk)
+    a = CreatephotoGR.objects.filter(im=kdm.pk)
+    return render(req, 'photo/gr_gallery.html', {'gr': kdm, 'a':a})
+
+def create_photo_gr (req):
+    kdm = CreatephotoGRForm()
+    if req.method == "POST":
+        kdm = CreatephotoGRForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('grader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_gr (req):
+    kdm = CreatecommentsGRForm()
+    if req.method == "POST":
+        kdm = CreatecommentsGRForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('grader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_gr (req, pk):    
+    kdm = get_object_or_404(GRADER, pk=pk)
+    return render(req, 'tech/gr_tech.html', {'gr': kdm})
+
+def create_tech_gr (req):
+    kdm = TechGRForm()
+    if req.method == "POST":
+        kdm = TechGRForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('grader')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_gr (req, pk):    
+    kdm = get_object_or_404(GRADER, pk=pk)
+    a = CreatecommentsGR.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/gr_comments.html', {'gr': kdm, 'a':a, 'b':b})
+
+def create_gr (req):
+    kdm_form = GRForm()
+    if req.method == "POST":
+        kdm_form = GRForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('grader')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_bu (req, pk):    
+    kdm = get_object_or_404(BULLDOZER, pk=pk)
+    a = CreatephotoBU.objects.filter(im=kdm.pk)
+    return render(req, 'photo/bu_gallery.html', {'bu': kdm, 'a':a})
+
+def create_photo_bu (req):
+    kdm = CreatephotoBUForm()
+    if req.method == "POST":
+        kdm = CreatephotoBUForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('bulldozer')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_bu (req):
+    kdm = CreatecommentsBUForm()
+    if req.method == "POST":
+        kdm = CreatecommentsBUForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('bulldozer')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_bu (req, pk):    
+    kdm = get_object_or_404(BULLDOZER, pk=pk)
+    return render(req, 'tech/bu_tech.html', {'bu': kdm})
+
+def create_tech_bu (req):
+    kdm = TechBUForm()
+    if req.method == "POST":
+        kdm = TechBUForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('bulldozer')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_bu (req, pk):    
+    kdm = get_object_or_404(BULLDOZER, pk=pk)
+    a = CreatecommentsBU.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/bu_comments.html', {'bu': kdm, 'a':a, 'b':b})
+
+def create_bu (req):
+    kdm_form = BUForm()
+    if req.method == "POST":
+        kdm_form = BUForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('bulldozer')
+    return render (req, 'kdm_form.html', {'form': kdm_form})
+
+def photo_sm (req, pk):    
+    kdm = get_object_or_404(SNOWMELTING, pk=pk)
+    a = CreatephotoSM.objects.filter(im=kdm.pk)
+    return render(req, 'photo/sm_gallery.html', {'sm': kdm, 'a':a})
+
+def create_photo_sm (req):
+    kdm = CreatephotoSMForm()
+    if req.method == "POST":
+        kdm = CreatephotoSMForm(req.POST, req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('snowmelting')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def create_comments_sm (req):
+    kdm = CreatecommentsSMForm()
+    if req.method == "POST":
+        kdm = CreatecommentsSMForm(req.POST)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('snowmelting')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+
+def tech_sm (req, pk):    
+    kdm = get_object_or_404(SNOWMELTING, pk=pk)
+    return render(req, 'tech/sm_tech.html', {'sm': kdm})
+
+def create_tech_sm (req):
+    kdm = TechSMForm()
+    if req.method == "POST":
+        kdm = TechSMForm(req.POST,req.FILES)
+        if kdm.is_valid():
+            kdm.save()
+            return redirect ('snowmelting')
+    return render (req, 'kdm_form.html', {'form': kdm})
+
+def comments_sm (req, pk):    
+    kdm = get_object_or_404(SNOWMELTING, pk=pk)
+    a = CreatecommentsSM.objects.filter(name=kdm.pk)
+    b = User.objects.all()
+    return render(req, 'comments/sm_comments.html', {'sm': kdm, 'a':a, 'b':b})
+
+def create_sm (req):
+    kdm_form = SMForm()
+    if req.method == "POST":
+        kdm_form = SMForm(req.POST, req.FILES)
+        if kdm_form.is_valid():
+            kdm_form.save()
+            return redirect ('snowmelting')
     return render (req, 'kdm_form.html', {'form': kdm_form})

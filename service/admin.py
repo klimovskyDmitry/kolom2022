@@ -134,3 +134,19 @@ class CreatecommentstrpricepAdmin (admin.ModelAdmin):
 @ admin.register (TechTRPRICEP)
 class TechTRPRICEPAdmin (admin.ModelAdmin):
     list_display = ('name', 'tech')  
+    
+@ admin.register (FP)
+class FPAdmin (admin.ModelAdmin):
+    list_display = ('name', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (Createphotofp)
+class CreatephotofpAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (Createcommentsfp)
+class CreatecommentsfpAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechFP)
+class TechFPAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech')  
