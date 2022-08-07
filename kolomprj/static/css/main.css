@@ -1,20 +1,32 @@
 
 
 body {
-
     background: url(/static/image/20190926_090211.jpg) no-repeat top center ;
+    background-attachment: fixed;
     background-size: 100%;        
        }
+
+thead {
+      position: sticky;
+      top: 0;
+      background-color: silver;
+      box-shadow: 0 2px 0 black;
+      }
+
 
     
 h1 {
       color: #80162f;
       font-family: 'Times New Roman';
        }
-h5 {
+
+
+h3, h4, h5 {
       color: #808000;
       font-family: 'Times New Roman';
-       }
+      }
+
+
 /* ul {
       color: orange;
     } */

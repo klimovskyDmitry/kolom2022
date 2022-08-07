@@ -1,0 +1,155 @@
+{% load static%}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>      </title>
+  {% comment %} <link rel = "stylesheet" href = '/static/css/main.css'>  {% endcomment %}
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+   crossorigin="anonymous">
+</head>
+<style>
+h5 {color: navy; font-family: 'Times New Roman';}
+h6 {color: darkgreen; font-family: 'Times New Roman';}
+body {background-color:silver;}
+    
+    {% comment %} background: url(/static/image/фон.jpg) no-repeat top center ;
+    background-size: 100%;
+    background-attachment: fixed;        {% endcomment %}
+        
+</style>
+
+
+
+<body>
+    <a button type="button"  class="btn btn-success" style = "position: fixed;" href="{% url 'index' %}"> Выйти </a>
+{% block content %} 
+{% comment %} {% include 'navbar.html' %}  {% endcomment %}
+<br/>
+<div class="container">
+    
+    <h5><b>Техника для уборки проезжей части </b></h5>
+        <h6 style="margin-left:50px;color: navy;"><b>Комбинированные дорожные машины (КДМ) </b></h6>
+            <div style="margin-left:100px;">
+            {% if kdms %}
+            {% for kdm in kdms%}
+                <h6><b>{{kdm.name}}</b></h6>
+            {%endfor%}
+            {%endif%}    
+            </div>
+        <h6 style="margin-left:50px;color: navy;"><b>ПУМ-ВС </b></h6>
+        <div style="margin-left:100px;">
+            {% if pumvss %}
+            {% for pumvs in pumvss%}
+                <h6><b>{{pumvs.name}}</b></h6>
+            {%endfor%}
+            {%endif%}    
+            </div>
+        <h6 style="margin-left:50px;color: navy;"><b>Вакуумные подметально-уборочные (ВПМ) </b></h6>
+        <div style="margin-left:100px;">
+            {% if vpms %}
+            {% for vpm in vpms%}
+                <h6><b>{{vpm.name}}</b></h6>
+            {%endfor%}
+            {%endif%}    
+            </div>
+        <h6 style="margin-left:50px;color: navy;"><b>Подметально-уборочные прицепы </b></h6>
+        <div style="margin-left:100px;">
+            {% if pupriceps %}
+            {% for pupricep in pupriceps%}
+                <h6><b>{{pupricep.name}}</b></h6>
+            {%endfor%}
+            {%endif%}    
+            </div>
+
+    <h5><b>Тротуароуборочная техника </b></h5>
+        <h6 style="margin-left:50px;color: navy;"><b>Многофункциональные </b></h6>
+        <div style="margin-left:100px;">
+            {% if trcombs %}
+            {% for trcomb in trcombs%}
+                <h6><b>{{trcomb.name}}</b></h6>
+            {%endfor%}
+            {%endif%}    
+            </div>
+        <h6 style="margin-left:50px;color: navy;"><b>Тракторы </b></h6>
+        <div style="margin-left:100px;">
+            {% if tracts %}
+            {% for tract in tracts%}
+                <h6><b>{{tract.name}}</b></h6>
+            {%endfor%}
+            {%endif%}    
+            </div>
+        <h6 style="margin-left:50px;color: navy;"><b>Вакуумные подметально-уборочные (ВПМ) </b></h6>
+        <div style="margin-left:100px;">
+            {% if trvpms %}
+            {% for trvpm in trvpms%}
+                <h6><b>{{trvpm.name}}</b></h6>
+            {%endfor%}
+            {%endif%}    
+            </div>
+        <h6 style="margin-left:50px;color: navy;"><b>Прицепы поливомоечные и пескоразбрасывающие</b></h6>
+        <div style="margin-left:100px;">
+            {% if trpriceps %}
+            {% for trpricep in trpriceps%}
+                <h6><b>{{trpricep.name}}</b></h6>
+            {%endfor%}
+            {%endif%}    
+            </div>
+
+    <h5><b>Фронтальные погрузчики </b></h5>
+        <div style="margin-left:100px;">
+        {% if fps %}
+        {% for fp in fps%}
+            <h6><b>{{fp.name}}</b></h6>
+        {%endfor%}
+        {%endif%}    
+        </div>
+
+    <h5><b>Снегопогрузчики и ФРО </b></h5>
+        <div style="margin-left:100px;">
+        {% if sls %}
+        {% for sl in sls%}
+            <h6><b>{{sl.name}}</b></h6>
+        {%endfor%}
+        {%endif%}    
+        </div>
+
+    <h5><b>Грейдеры </b></h5>
+        <div style="margin-left:100px;">
+        {% if grs %}
+        {% for gr in grs%}
+            <h6><b>{{gr.name}}</b></h6>
+        {%endfor%}
+        {%endif%}    
+        </div>
+
+    <h5><b>Бульдозеры </b></h5>
+        <div style="margin-left:100px;">
+        {% if bus %}
+        {% for bu in bus%}
+            <h6><b>{{bu.name}}</b></h6>
+        {%endfor%}
+        {%endif%}    
+        </div>   
+
+    <h5><b>Снегоплавильные машины </b></h5>
+        <div style="margin-left:100px;">
+        {% if sms %}
+        {% for sm in sms%}
+            <h6><b>{{sm.name}}</b></h6>
+        {%endfor%}
+        {%endif%}    
+        </div>
+    
+  </div>
+
+{% endblock %}
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+</html>

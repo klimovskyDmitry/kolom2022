@@ -150,3 +150,67 @@ class CreatecommentsfpAdmin (admin.ModelAdmin):
 @ admin.register (TechFP)
 class TechFPAdmin (admin.ModelAdmin):
     list_display = ('name', 'tech')  
+
+@ admin.register (SNOWLOADER)
+class SNOWLOADERAdmin (admin.ModelAdmin):
+    list_display = ('name', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (CreatephotoSL)
+class CreatephotoSLAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (CreatecommentsSL)
+class CreatecommentsSLAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechSL)
+class TechSLAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech')  
+    
+@ admin.register (GRADER)
+class GRADERAdmin (admin.ModelAdmin):
+    list_display = ('name', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (CreatephotoGR)
+class CreatephotoGRAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (CreatecommentsGR)
+class CreatecommentsGRAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechGR)
+class TechGRAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech') 
+    
+@ admin.register (BULLDOZER)
+class BULLDOZERAdmin (admin.ModelAdmin):
+    list_display = ('name', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (CreatephotoBU)
+class CreatephotoBUAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (CreatecommentsBU)
+class CreatecommentsBUAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechBU)
+class TechBUAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech')   
+    
+@ admin.register (SNOWMELTING)
+class SNOWMELTINGAdmin (admin.ModelAdmin):
+    list_display = ('name', 'factory', 'image', 'tech', 'comment', 'id')
+    
+@ admin.register (CreatephotoSM)
+class CreatephotoSMAdmin (admin.ModelAdmin):
+    list_display = ('im', 'image1', 'image2', 'image3')
+    
+@ admin.register (CreatecommentsSM)
+class CreatecommentsSMAdmin (admin.ModelAdmin):
+    list_display = ('name', 'comment')   
+    
+@ admin.register (TechSM)
+class TechSMAdmin (admin.ModelAdmin):
+    list_display = ('name', 'tech')   

@@ -3,7 +3,8 @@
 
 {% block content %}
 <div class = 'container'>
-    <h1>Login Page</h1>
+    <h2 style="color: #80162f;
+    font-family: 'Times New Roman';"><b>Страница входа</b></h2>
     {% if messages %}
         {% for message in messages %}
             <div class = "alert alert-{{message.tags}}" role = "alert">
@@ -21,9 +22,10 @@
 
     <hr>
     <small class = 'text-nuted'>
-        <b>
-        Not registered yet? <a href = "{% url 'register' %}">Зарегистрироваться </a>
+    <b>
+        Ещё не зарегистрировались? <a href = "{% url 'register' %}">Зарегистрироваться </a>
+    </b>
     </small>
-        </b>
+        
 </div>
 {% endblock %}

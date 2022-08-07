@@ -53,10 +53,17 @@ def bulldozer (req):
 def snowmelting (req):
     return render (req, 'for_snowmelting.html',{'sms' : SNOWMELTING.objects.all()})
 
-
+def sitemap (req):
+    return render (req, 'sitemap.html',{'kdms' : KDM.objects.all(), 'pumvss' : PUMVS.objects.all(),
+    'vpms' : VPM.objects.all(), 'pupriceps' : PUPRICEP.objects.all(), 'trcombs' : TRCOMB.objects.all(), 'tracts' : TRACT.objects.all(),
+    'trvpms' : TRVPM.objects.all(), 'trpriceps' : TRPRICEP.objects.all(), 'fps' : FP.objects.all(), 'sls' : SNOWLOADER.objects.all(),
+    'grs' : GRADER.objects.all(), 'bus' : BULLDOZER.objects.all(), 'sms' : SNOWMELTING.objects.all()})
 
 def index (req):
      return render (req, 'index.html')
+ 
+def contacts (req):
+     return render (req, 'contacts.html')
 
 def navbar (req):
     return render (req, 'navbar.html')
