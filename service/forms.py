@@ -310,7 +310,7 @@ class CreatephotoBUForm (forms.ModelForm):
 class CreatecommentsBUForm (forms.ModelForm):
     class Meta:
         model = CreatecommentsBU
-        fields = ['name', 'comment', ]
+        fields = ['name', 'comment',]
         labels = {"name" : 'Выберите марку'}
         
 class TechBUForm (forms.ModelForm):

@@ -27,13 +27,13 @@
         <td class="leftcol">
          
        
- {% if bu %}
+{% if bu %}
 
-{% if bu.comment  %}  
-    {% if bu.image  %}     
+    {% if bu.comment  %}  
+        {% if bu.image  %}     
 <img src = "{{bu.image.url}}" style=" max-width:500px; max-height:300px; margin:3px; border: 1px solid black; "> 
     
-    {%endif%}
+        {%endif%}
     <br/>
     <br/>
     <a button type="button" class="btn btn-primary" href="{% url 'create_comments_bu' %}"> <b>Добавить комментарий </b> </a> </h3>
@@ -41,28 +41,26 @@
 </td>
     <td valign="top"><h3><b> КОММЕНТАРИИ: </b></h3><br/>
               
-<h6> {{bu.comment}} </h6>
-{% for aa in a %} 
-{% if aa %}
-{% if aa.comment %}       
+<h6 style = "word-break: break-all;"> {{bu.comment}} </h6>
+        {% for aa in a %} 
+        {% if aa %}
+        {% if aa.comment %}       
          
 <h6 style = "word-break: break-all;"> {{aa.comment}} </h6>
-       
-{%endif%}
-{%endif%}
-{%endfor%}
-
+      
+        {%endif%}
+        {%endif%}
+        {%endfor%}
 
 </td> 
 <br>
 
-{%endif%}
-
-
-{% if not bu.comment  %}  
-    {% if bu.image  %}     
-    <img src = "{{bu.image.url}}" style=" max-width:500px; max-height:300px; margin:3px; border: 1px solid black; "> 
     {%endif%}
+
+    {% if not bu.comment  %}  
+        {% if bu.image  %}     
+    <img src = "{{bu.image.url}}" style=" max-width:500px; max-height:300px; margin:3px; border: 1px solid black; "> 
+        {%endif%}
     <br/>
     <br/>
 
@@ -70,23 +68,18 @@
    
 <td valign="top" > <h3><b> КОММЕНТАРИИ: </b></h3><br/>        
         
-{% for aa in a %} 
-
-{% if aa.comment %}       
-
+        {% for aa in a %} 
+        {% if aa.comment %}       
 <h6 style = "word-break: break-all;"> {{aa.comment}} </h6>
-       
-{%endif%}
-{% if not aa.comment  %}  
-<h3><b> Комментариев к {{bu.name}} пока никто не оставил </b></h3> 
-{%endif%}
-
-{%endfor%}
-
+        {%endif%}
+        {%empty%}  
+            <h5> Комментариев к {{bu.name}} пока никто не оставил </h5> 
+        {%endfor%}
+    
     </td>
+    {%endif%} 
 {%endif%} 
 
-{% endif %}
 </tr>
 </table>
 

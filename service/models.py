@@ -9,6 +9,8 @@ class Auto (models.Model):
     title = models.CharField (verbose_name='Марка, модель', max_length=100)
     type = models.CharField (verbose_name='Тип', max_length=100)
 
+
+
 class KDM (models.Model):
     name = models.CharField (verbose_name='Марка, модель', max_length=50, unique=True)
     chassis = models.CharField (verbose_name='Шасси', max_length=50, blank=True)

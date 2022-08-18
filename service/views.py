@@ -812,6 +812,7 @@ def create_tech_bu (req):
 
 def comments_bu (req, pk):    
     kdm = get_object_or_404(BULLDOZER, pk=pk)
+    
     a = CreatecommentsBU.objects.filter(name=kdm.pk)
     b = User.objects.all()
     return render(req, 'comments/bu_comments.html', {'bu': kdm, 'a':a, 'b':b})

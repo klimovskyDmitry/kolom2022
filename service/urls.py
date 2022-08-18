@@ -135,7 +135,7 @@ urlpatterns = [
     path ('create_comments_sm', create_comments_sm, name = 'create_comments_sm'),
     path ('photo_sm/<int:pk>/', photo_sm, name = 'photo_sm'),
     path ('tech_sm/<int:pk>/', tech_sm, name = 'tech_sm'),
-    path ('create_tech_sm', create_tech_sm, name = 'create_tech_smu'),
+    path ('create_tech_sm', create_tech_sm, name = 'create_tech_sm'),
     path ('comments_sm/<int:pk>/', comments_sm, name = 'comments_sm'),
     
 ]
