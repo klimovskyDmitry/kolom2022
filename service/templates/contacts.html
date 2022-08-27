@@ -16,7 +16,7 @@ body {background-color:silver;}
 </style>
 
 
-
+{% include 'navbar.html' %} 
 <body>
     <a button type="button"  class="btn btn-success" style = "position: fixed;" href="{% url 'index' %}"> Выйти </a>
 {% block content %} 

@@ -15,6 +15,7 @@ urlpatterns = [
     path ('register', RegisterUser.as_view(), name = 'register'),
     path ('sitemap', sitemap, name = 'sitemap'),
     path ('contacts', contacts, name = 'contacts'),
+    path ('about', about, name = 'about'),
     
     path ('roadway/', roadway, name = 'roadway'),
     path ('sidewalk/', sidewalk, name = 'sidewalk'),

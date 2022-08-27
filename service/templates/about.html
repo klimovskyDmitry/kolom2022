@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>      </title>
+  {% comment %} <link rel = "stylesheet" href = '/static/css/main.css'>  {% endcomment %}
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+   crossorigin="anonymous">
+</head>
+<style>
+h5 {color: navy; font-family: 'Times New Roman';}
+h6 {color: darkgreen; font-family: 'Times New Roman';}
+body {background-color:silver;}        
+</style>
+
+
+{% include 'navbar.html' %} 
+<body>
+    <a button type="button"  class="btn btn-success" style = "position: fixed;" href="{% url 'index' %}"> Выйти </a>
+{% block content %} 
+
+<br/>
+<div class="container">
+<br/><br/>
+
+<h5> <b>Добрый день!</b> </h5><br/>
+<h5> На нашем сайте представлены основные типы, марки и модели техники, используемые специализированными предприятиями
+     Санкт-Петербурга в повседневной работе при уборке улично-дорожной сети города. </h5>
+<h5> Администрацией сайта произведена выборка техники, эксплуатируемой в городе на протяжении последних 15-20 лет. </h5>
+<h5> Не секрет, что ещё в начале XXI века специализированные предприятия Петербурга имели в своём распоряжении уборочную 
+    технику преимужественно отечественного (РФ + Белоруссия) производства. Проезжую часть убирали большей частью ЗИЛы,
+    немного КамАЗов и ГАЗ, много МТЗ-80/82 (позже - Беларус), зимой активно использовали ХАПы в связке с самосвалами.
+    Номенклатура спецтехники была крайне ограничена, что впрочем хорошо сказывалось на снабжении запасными частями, которые
+    можно было закупать без проблем и в сжатые сроки. Только-только стали появляться импортные подметально-уборочные прицепы типа
+    Broddway Senior и тяжелые пылесосы типа Bucher на шасси КамАЗ. Одним из переломных моментов в увеличении номенклатуры уборочной
+    техники является передача тротуаров на баланс предприятий, подведомственных Комитету по благоустройству Санкт-Петербурга (ранее - КБиДХ).
+    
+</h5>
+<h3>БЛЯ, Я ЗАЕБАЛСЯ УЖЕ ЭТУ БАЙДУ ПРИДУМЫВАТЬ</h3> 
+    
+
+</div>
+
+{% endblock %}
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+</html>

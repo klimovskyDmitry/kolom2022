@@ -64,6 +64,9 @@ def index (req):
  
 def contacts (req):
      return render (req, 'contacts.html')
+ 
+def about (req):
+     return render (req, 'about.html')
 
 def navbar (req):
     return render (req, 'navbar.html')

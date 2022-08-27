@@ -28,7 +28,8 @@
 
 
 {% block content %}
-<a button type="button"  class="btn btn-success" style = 'float: right;' href="{% url 'roadway' %}"> Выйти </a>
+{% include 'navbar.html' %} 
+<a button type="button"  class="btn btn-success" style = 'float: left;' href="{% url 'roadway' %}"> Выйти </a>
     <div class = 'container'>
         <h1 align = 'center'  ><b> Комбинированные дорожные машины </b></h1>
    <div class = 'card card-block'> 

@@ -26,7 +26,8 @@
 </style>
 
 {% block content %}
-<a button type="button"  class="btn btn-success" style = 'float: right;' href="{% url 'sidewalk' %}"> Выйти </a>
+{% include 'navbar.html' %} 
+<a button type="button"  class="btn btn-success" style = 'float: left;' href="{% url 'sidewalk' %}"> Выйти </a>
     <div class = 'container'>
         <h1 align = 'center'  ><b> Многофункциональные </b></h1>
    <div class = 'card card-block'> 
