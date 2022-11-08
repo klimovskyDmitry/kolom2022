@@ -22,17 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-@h22elnbguv1r6^_o6jvekrk4(8$!hm4oi9ea)^@ej-en52r^3'
+SECRET_KEY = 'django-insecure-@h22elnbguv1r6^_o6jvekrk4(8$!hm4oi9ea)^@ej-en52r^3'
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '@h22elnbguv1r6^_o6jvekrk4(8$!hm4oi9ea)^@ej-en52r^3')
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '@h22elnbguv1r6^_o6jvekrk4(8$!hm4oi9ea)^@ej-en52r^3')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 # DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
-DEBUG = False
+# DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'www.roadclean.ru', 'http://www.roadclean.ru']
-
+# ALLOWED_HOSTS = ["roadclean.ru"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -47,12 +47,6 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
-CSRF_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
-
-
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -62,6 +56,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# SECURE_HSTS_SECONDS = 3600
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
 
 ROOT_URLCONF = 'kolomprj.urls'
 
